@@ -4,11 +4,19 @@ function rollDice() {
     for (i = 0; i < 10; i++) {
         const roll = Math.floor(Math.random() * 6) + 1;
 
-        alert("You roll a " + roll + ".");
+        alert("You roll a " + roll + ".\n\nYou currently have " + goldCoins + " gold coins!");
 
         if (roll === 1) {
             alert("Game over!");
             break;
+        }
+        if (roll === 4) {
+            if (goldCoins > 0) {
+                goldCoins -= 1;
+                alert("You lost a gold coin!\n\nYou currently have " + goldCoins + " gold coins!");
+            } else {
+                alert("You have " + goldCoins + " coins, you won't lose points this time.");
+            }
         }
         if (roll < 5) {
             continue;
